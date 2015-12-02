@@ -1,0 +1,28 @@
+Automatically builds first table for https://en.wikipedia.org/wiki/List_of_countries_by_percentage_of_population_living_in_poverty based on most up to date world bank data from their api.
+
+get started/install
+
+1. install python 3
+
+2. install pip for python 3
+sudo apt-get install python3-pip
+
+3. install libs
+sudo pip3 install -r requrirements.txt
+
+4. run it
+This program is designed to be run with python3
+navigate to the directory of this readme in the console
+Then run 
+python3 create_table.py
+
+
+Notes:
+
+1. This program is not set up to auto post the table. It just ouputs the markup for a user
+to manually add to this page. That funtionality may come later. For now though it should be manually checked. I will be doing this personally for now. My wiki user name is Lonjers. My email is utilitarianexe@gmail.com.
+
+2. The program may take some time(5 min) to pull all the api data but it automatically caches so subsequent runs will be fast.
+
+3. World Bank api is completely open at the moment don't do something stupid like delete the cache over and over and rerun this over and over. I don't want them to have to restrict their api.
+
