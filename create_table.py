@@ -1,9 +1,22 @@
 '''
+dev things----------
 we need tests
-we need python tools(autocomplete, sytax checker, pep8,ect)
+we need python tools(autocomplete, sytax checker, pep8, debugger)
 read all doc strings
 code review
 copy paste
+
+problems at current feature set -------------
+how do we decide what years to consider
+how do we quotes around names
+how do we fix
+
+required features--------------
+auto posting
+auto pulling
+other tables
+updating the image
+informing other editors
 '''
 
 def get_table_data():
@@ -95,7 +108,7 @@ def most_recent_data(country_data):
     year_data = country_data['years_to_rates']
     max_year, max_rate = None, None
     for year, rate in year_data.items():
-        if max_year is None or int(year) > int(max_year) :
+        if max_rate is None or (int(year) > int(max_year) and rate is not None):
             max_year = year
             max_rate = rate
 
@@ -124,6 +137,7 @@ def build_wiki_table(table_data):
         if year is None or rate is None:
             rate = 'bla' #TODO
             year = 'bla' #TODO
+            continue
 
         # simplified take a look at doc string for whats currently on page
         # not using standard  python string formating because of conflicts with markup
@@ -131,7 +145,6 @@ def build_wiki_table(table_data):
         row_text = row_text + row_break
         row_texts.append(row_text)
     
-    print row_texts
     table_text = ''.join(row_texts)
     return table_text
 
@@ -145,7 +158,6 @@ def post_table(wiki_table):
 
 def build_table():
     table_data = get_table_data()
-    print(table_data)
     wiki_table = build_wiki_table(table_data)
     post_table(wiki_table)
 
