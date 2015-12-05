@@ -15,14 +15,22 @@ This program is designed to be run with python3
 navigate to the directory of this readme in the console
 Then run 
 python3 create_table.py
+warning messages are printed to standard out
+the table is output to a file named output_markup in the directory you ran from
 
 
 Notes:
 
-1. This program is not set up to auto post the table. It just ouputs the markup for a user
-to manually add to this page. That funtionality may come later. For now though it should be manually checked. I will be doing this personally for now. My wiki user name is Lonjers. My email is utilitarianexe@gmail.com.
+1. This program is not set up to auto post the table. It just ouputs the full markup for the table for a user
+to manually add to the page. That funtionality may come later. For now though it should be manually checked. I will be doing this personally for now. My wiki user name is Lonjers. My email is utilitarianexe@gmail.com.
 
 2. The program may take some time(5 min) to pull all the api data but it automatically caches so subsequent runs will be fast.
 
 3. World Bank api is completely open at the moment don't do something stupid like delete the cache over and over and rerun this over and over. I don't want them to have to restrict their api.
+
+4. Specific more recent estimates not from the world bank can be added in the reference_overwrite function. There is one in there for India currently. None of the other references made before this program were used were of good quality and more recent than the world bank data and so were removed.
+
+5. Access dates are updated to the time the program is run
+
+6. More features to come
 
