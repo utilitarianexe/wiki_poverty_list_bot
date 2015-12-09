@@ -1,5 +1,6 @@
 import requests
 import requests_cache
+import utils
 
 requests_cache.install_cache('worldbank_api_cache') #TODO how long does this last
 base_uri = 'http://api.worldbank.org/'
@@ -98,20 +99,8 @@ def parse_poverty_data(raw_data):
                 country_indicator_poverty_data['percent'] = row['value']
                 country_indicator_poverty_data['most_recent_date'] = row['date']
 
-    poverty_data_for_countries = listify_dict(country_id_to_poverty_data)
+    poverty_data_for_countries = utils.listify_dict(country_id_to_poverty_data)
     return sorted(poverty_data_for_countries, key=lambda country_data: country_data['country_name'])
-
-
-def listify_dict(data, id_name='country_code'):
-    '''
-    go from a dict of dicts by id
-    to an array with each dict and id added to the inner dicts
-    '''
-    items = []
-    for k, item in data.items():
-        item[id_name] = k
-        items.append(item)
-    return items
 
 
 def most_recent_poverty_data():

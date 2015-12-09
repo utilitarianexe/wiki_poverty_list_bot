@@ -7,16 +7,33 @@ get started/install
 2. install pip for python 3
 sudo apt-get install python3-pip
 
-3. install libs
+3. install the python libs
 sudo pip3 install -r requrirements.txt
 
-4. run it
+5. run it
 This program is designed to be run with python3
 navigate to the directory of this readme in the console
 Then run 
 python3 create_table.py
 warning messages are printed to standard out
 the table is output to a file named output_markup in the directory you ran from
+
+6. Building the map. This will require installing pylab. A massive pain so I left it out of the main processs. On ubuntu I needed.
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran libpng-dev libjpeg-dev libffi-dev
+freetype-dev??
+but depending on your system set up this may very consideralbly check the error messages on the pip3 install
+Then you will need to pip3 install 
+numpy
+scipy
+pylab
+cycler
+python-dateutil
+cairocffi
+finally you will need basemap http://matplotlib.org/basemap/users/installing.html
+Once this is complete you can run
+python3 countries_map.py
+
+
 
 
 Notes:

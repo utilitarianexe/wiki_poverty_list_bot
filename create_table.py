@@ -107,16 +107,6 @@ def build_table_rows(table_data):
     |-
     | style="text-align:left;"| {{flag|Algeria}} || 6.79 || 23.61 || 1995 || 63 || 1995
     |-
-    flag problemsdd
-    Virgin Islands (U.S.) -> United States Virgin Islands
-    Egypt, Arab Rep. -> Egypt
-    Hong Kong SAR, China -> Hong Kong
-     Korea, Dem. Rep. -> North Korea
-    Lao PDR -> Laos
-    Macao SAR, China -> Macao
-    St. Martin (French part) -> Collectivity of Saint Martin
-    Venezuela, RB -> Venezuela
-    Yemen, Rep. -> Yemen
     '''
     row_texts = []
     number_valid = 0
