@@ -1,4 +1,4 @@
-Automatically builds first table for https://en.wikipedia.org/wiki/List_of_countries_by_percentage_of_population_living_in_poverty based on most up to date world bank data from their api.
+Automatically builds first table and image/map for https://en.wikipedia.org/wiki/List_of_countries_by_percentage_of_population_living_in_poverty based on most up to date world bank data from their api.
 
 get started/install
 
@@ -46,7 +46,7 @@ to manually add to the page. That funtionality may come later. For now though it
 
 3. World Bank api is completely open at the moment don't do something stupid like delete the cache over and over and rerun this over and over. I don't want them to have to restrict their api.
 
-4. Specific more recent estimates not from the world bank can be added in the reference_overwrite function. There is one in there for India currently. None of the other references made before this program were used were of good quality and more recent than the world bank data and so were removed.
+4. Specific more recent estimates not from the world bank can be added in the reference_overwrite function. There is one in there for India currently. None of the other references made before this program were used were of good quality and more recent than the world bank data and so were removed. These references do not currently get added to the map that uses pure world bank data.
 
 5. Access dates are updated to the time the program is run
 
