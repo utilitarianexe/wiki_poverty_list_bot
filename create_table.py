@@ -10,21 +10,24 @@ copy paste
 redundant code
 bad naming
 
+---------need-----------
+legend on image
+upload image
+image should save
+readme notes on image
+
 manaul update work --------------
-remove bangladesh citation
-remove gambia citation
-change description of chart
-look at notes about wiki bots
+change description for image
+fix saudi reference at end of article
 
 like to have------------------
+handle individual citations in map data
 auto posting
-updating the image
 cia data
 compain to world bank about incomplete data
-auto fill in dates for access times
-auto pulling
-other tables
+other tables(national rate table)
 informing other editors
+print out what countries have no data or 0.0 from world bank
 '''
 
 import world_bank_api

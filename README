@@ -19,9 +19,9 @@ warning messages are printed to standard out
 the table is output to a file named output_markup in the directory you ran from
 
 6. Building the map. This will require installing pylab. A massive pain so I left it out of the main processs. On ubuntu I needed.
-sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran libpng-dev libjpeg-dev libffi-dev
-freetype-dev??
-but depending on your system set up this may very consideralbly check the error messages on the pip3 install
+sudo apt-get install libblas-dev liblapack-dev libatlas-base-dev gfortran libpng-dev libjpeg-dev libffi-dev libfreetype6-dev
+Depending on your system set up this may very consideralbly. Check the error messages on the pip3 install
+
 Then you will need to pip3 install 
 numpy
 scipy
@@ -33,6 +33,7 @@ finally you will need basemap http://matplotlib.org/basemap/users/installing.htm
 Once this is complete you can run
 python3 countries_map.py
 
+It is likely at this point you will still hit some weird unicode errors. These can be fixed by changing return v.decode('utf-8')  to return v.decode('utf-8', 'ignore') in /usr/local/lib/python3.4/dist-packages/mpl_toolkits/basemap/shapefile.py (you may have this installed somewhere else or have a version without this issue)
 
 
 
