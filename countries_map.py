@@ -1,13 +1,15 @@
-import utils
-import world_bank_api
-
-from matplotlib.mlab import prctile_rank
+'''
+This module when run outputs the map as a png
+'''
 import matplotlib.pyplot as plt
-from mpl_toolkits.basemap import Basemap as Basemap
 import matplotlib.patches as mpatches
-import numpy
 from matplotlib.colors import rgb2hex
 from matplotlib.patches import Polygon
+from mpl_toolkits.basemap import Basemap as Basemap
+import numpy
+
+import utils
+import world_bank_api
 
 
 def calculate_color(rate):
@@ -77,9 +79,6 @@ def create_map():
         poly = Polygon(seg, facecolor=color, edgecolor=color)
         axes.add_patch(poly)
 
-    # m.drawcoastlines()
-    # m.fillcontinents()
-    #m.drawcountries()
     add_legend()
     fig = plt.gcf()
     fig.set_size_inches(30, 15)
@@ -88,11 +87,9 @@ def create_map():
     fig.savefig('countries_by_poverty_rate_world_bank_data.png', dpi=100,
                 bbox_inches='tight',
                 pad_inches=0)
-    # plt.savefig('poverty_map.png', bbox_inches='tight')
     # plt.show()
 
 def add_legend():
-
     rates = [('0 or not available', 0.0,),
              ('20', 20.0,),
              ('40', 40.0,),

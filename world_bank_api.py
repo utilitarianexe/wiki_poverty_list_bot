@@ -61,20 +61,34 @@ def query_country(country_code, indicator='1.90'):
 
 def parse_poverty_data(raw_data):
     '''
+    Takes the output of the world bank data and converts it into a useful form
+    The world bank data includes data for old years even when newer data exists
+    This only returns the newest data point for a country.
+
     input------------------------
-    array off these
-     {'decimal': '0', 'value': None, 'indicator': {'id': 'SI.POV.NOP2', 'value': 'Number of poor at $3.10 a day (2011 PPP) (millions)'}, 'country': {'id': 'ZW', 'value': 'Zimbabwe'}, 'date': '1990'},
+    dictionary of arrays
+    dictionary keyes are indicator type
+    Currently the idicator types are 3.10 and 1.90
+    The arrays have the data for that poverty line
+    array items look like
+     {'decimal': '0', 'value': None,
+    'indicator': {'id': 'SI.POV.NOP2',
+    'value': 'Number of poor at $3.10 a day (2011 PPP) (millions)'},
+    'country': {'id': 'ZW', 'value': 'Zimbabwe'}, 'date': '1990'},
+    There may be more than one array per country
 
     output ---------------------
     array of dictionaries
     the sub dicts look like
-    {'country_name':'Zimbabwe', 'most_recent_date':'1990', 'percent':10.1, 'country_code':'ZW'}
+    {'country_name':'Zimbabwe',
+    'poverty_rates': {'3.10': {'most_recent_date':'1990', 'percent':10.1},
+    '1.90': {'most_recent_date':'1990', 'percent':10.1}}
+    'country_code':'ZW'}
     if no data can be found percent will be None
 
     issues -----------------
     all kinds of problems can happen if this data format changes even symantically
     why both a value and a decimal field
-    we need to scrub regions out or do something with them
     '''
     country_id_to_poverty_data = {}
     for indicator, data in  raw_data.items():

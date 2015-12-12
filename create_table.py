@@ -30,15 +30,19 @@ informing other editors
 print out what countries have no data or 0.0 from world bank
 '''
 
-import world_bank_api
-import iso3166 # country code data
 import datetime
+import iso3166 # country code data
+import world_bank_api
 
 
 def build_table_text(table_data):
+    '''
+    Takes data in the form described in doc string for the output of parse_poverty_data
+    returns the wiki markup for generating the first table on the wiki page
+    '''
     #December 4, 2015
     now = datetime.date.today()
-    
+
     header = '''{{| class="wikitable sortable" style="margin-left:auto;margin-right:auto;text-align: right"
 |-
 ! data-sort-type = text | Country
@@ -56,7 +60,13 @@ def build_table_text(table_data):
     return table_text
 
 
-def reference_overwrite(name, rate_190, year_190, rate_310, year_310):
+def overwrite_with_reference(name, rate_190, year_190, rate_310, year_310):
+    '''
+    Takes in information on a countries poverty rate
+    If there is an additional refernece for this country in the overwrite dict
+    and the reference is either newer or no data is in the world bank data
+    returns the data from the reference along with the markup for the reference
+    '''
     india_ref = '<ref>http://pubdocs.worldbank.org/pubdocs/publicdoc/2015/10/109701443800596288/PRN03-Oct2015-TwinGoals.pdf</ref>'
     overwrite_dict = {'India': {'level_190': {'year': '2012', 'rate':'12.4', 'ref': india_ref},
                                 'level_310': None}}
@@ -78,7 +88,7 @@ def reference_overwrite(name, rate_190, year_190, rate_310, year_310):
             rate_310 = overwrite['level_310']['rate']
             ref_310 = overwrite['level_310']['ref']
 
-            
+
     return rate_190, year_190, ref_190, rate_310, year_310, ref_310
 
 
@@ -143,7 +153,8 @@ def build_table_rows(table_data):
             year_190 = '{{N/A}}'
             rate_190 = '{{N/A}}'
 
-        rate_190, year_190, ref_190, rate_310, year_310, ref_310 = reference_overwrite(name, rate_190, year_190, rate_310, year_310)
+        country_data = overwrite_with_reference(name, rate_190, year_190, rate_310, year_310)
+        rate_190, year_190, ref_190, rate_310, year_310, ref_310 = country_data
         row_text = build_row_text(name, rate_190, year_190, rate_310, year_310,
                                   extra_reference_190=ref_190,
                                   extra_reference_310=ref_310)

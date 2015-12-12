@@ -35,6 +35,7 @@ python3 countries_map.py
 
 It is likely at this point you will still hit some weird unicode errors. These can be fixed by changing return v.decode('utf-8')  to return v.decode('utf-8', 'ignore') in /usr/local/lib/python3.4/dist-packages/mpl_toolkits/basemap/shapefile.py (you may have this installed somewhere else or have a version without this issue)
 
+countries_by_poverty_rate_world_bank_data.png will output to this directory. Use it to update https://commons.wikimedia.org/wiki/File:Countries_by_poverty_rate_world_bank_data.png if you can instead of totally reuploading. But don't worry if this does not work for some reason and you need to just totally redo it.
 
 
 Notes:
